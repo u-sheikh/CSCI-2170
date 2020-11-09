@@ -30,7 +30,7 @@ $myquery= "SELECT * FROM users";
 $result = $conn->query($myquery);
 if ($result = $conn->query($myquery)) {
     while ($row = $result->fetch_assoc()) {
-        echo "%s (%s, %s, %s)<br>", $row["userid"], $row["about"], $row["name"];
+//        echo "%s (%s, %s, %s)<br>", $row["userid"];
 
 //$conn = mysqli_connect($serverName,$dbName,$userName,$userPassword);
 //if (!$conn){
@@ -43,7 +43,7 @@ if ($result = $conn->query($myquery)) {
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
     <div class="container">
-      <a class="navbar-brand" href="about.php">Lorem Nullam</a>
+      <a class="navbar-brand" href="about.php"><?php echo $row["name"]; ?></a>
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         Menu
         <i class="fas fa-bars"></i>
@@ -51,7 +51,7 @@ if ($result = $conn->query($myquery)) {
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link" href="index.php">Home</a>
+            <a class="nav-link" href="index.php"><?php echo $row["name"];?></a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="about.php">About</a>
@@ -69,7 +69,7 @@ if ($result = $conn->query($myquery)) {
 
 
   <!-- Page Header -->
-  <header class="masthead" style="background-image: url('img/<?php $row["aboutImage"] ?>')">
+  <header class="masthead" style="background-image: url('img/<?php echo $row["aboutImage"]; ?>')">
     <div class="overlay"></div>
     <div class="container">
       <div class="row">
@@ -87,10 +87,8 @@ if ($result = $conn->query($myquery)) {
   <div class="container">
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe nostrum ullam eveniet pariatur voluptates odit, fuga atque ea nobis sit soluta odio, adipisci quas excepturi maxime quae totam ducimus consectetur?</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius praesentium recusandae illo eaque architecto error, repellendus iusto reprehenderit, doloribus, minus sunt. Numquam at quae voluptatum in officia voluptas voluptatibus, minus!</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut consequuntur magnam, excepturi aliquid ex itaque esse est vero natus quae optio aperiam soluta voluptatibus corporis atque iste neque sit tempora!</p>
-      </div>
+          <p>  <?php echo $row["about"]; ?></p>
+        </div>
     </div>
   </div>
 
