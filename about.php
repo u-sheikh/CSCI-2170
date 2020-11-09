@@ -69,7 +69,7 @@ if ($result = $conn->query($myquery)) {
 
 
   <!-- Page Header -->
-  <header class="masthead" style="background-image: url('img/<?php $row["aboutImage"] ?>)">
+  <header class="masthead" style="background-image: url('img/<?php $row["aboutImage"] ?>')">
     <div class="overlay"></div>
     <div class="container">
       <div class="row">
