@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="f1d473a8-f230-4cf5-9c2a-d22424626a3a" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP 7.3" />
+  <component name="ProjectId" id="1iN5HQCpS5cRvk1EZXSFhWdlUjs" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f1d473a8-f230-4cf5-9c2a-d22424626a3a" name="Default Changelist" comment="" />
+      <created>1601735122006</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1601735122006</updated>
+      <workItem from="1601735123509" duration="40000" />
+      <workItem from="1601735204569" duration="1535000" />
+      <workItem from="1601740448525" duration="6876000" />
+      <workItem from="1603265880069" duration="244000" />
+      <workItem from="1603266380673" duration="2461000" />
+      <workItem from="1603286626562" duration="927000" />
+      <workItem from="1603312180292" duration="4791000" />
+      <workItem from="1603391295271" duration="17461000" />
+      <workItem from="1604879266469" duration="3607000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="86" y="187" key="#CLI_Interpreters" timestamp="1603267368870">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="86" y="187" key="#CLI_Interpreters/0.0.1680.1050@0.0.1680.1050" timestamp="1603267368870" />
+    <state x="39" y="175" key="#PHP" timestamp="1603266763850">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="39" y="175" key="#PHP/0.0.1680.1050@0.0.1680.1050" timestamp="1603266763850" />
+    <state x="440" y="190" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1603329234763">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="440" y="190" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1603329234763" />
+    <state x="659" y="455" key="NewPhpFileDialog" timestamp="1604879328942">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="659" y="455" key="NewPhpFileDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1604879328942" />
+    <state x="0" y="164" key="SettingsEditor" timestamp="1603267375853">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="0" y="164" key="SettingsEditor/0.0.1680.1050@0.0.1680.1050" timestamp="1603267375853" />
+    <state x="440" y="265" key="Vcs.Push.Dialog.v2" timestamp="1604939903157">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="440" y="265" key="Vcs.Push.Dialog.v2/0.0.1680.1050@0.0.1680.1050" timestamp="1604939903157" />
+  </component>
+</project>
