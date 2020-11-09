@@ -1,7 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="f1d473a8-f230-4cf5-9c2a-d22424626a3a" name="Default Changelist" comment="" />
+    <list default="true" id="f1d473a8-f230-4cf5-9c2a-d22424626a3a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/function.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/about.php" beforeDir="false" afterPath="$PROJECT_DIR$/about.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/serverLogin.php" beforeDir="false" afterPath="$PROJECT_DIR$/serverLogin.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -55,11 +78,23 @@
       <workItem from="1603312180292" duration="4791000" />
       <workItem from="1603391295271" duration="17461000" />
       <workItem from="1604879266469" duration="3607000" />
+      <workItem from="1604942493860" duration="1101000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="WindowStateProjectService">
     <state x="86" y="187" key="#CLI_Interpreters" timestamp="1603267368870">
@@ -74,9 +109,10 @@
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state x="440" y="190" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1603329234763" />
-    <state x="659" y="455" key="NewPhpFileDialog" timestamp="1604879328942">
-      <screen x="0" y="0" width="1680" height="1050" />
+    <state x="757" y="-629" key="NewPhpFileDialog" timestamp="1604942528852">
+      <screen x="4" y="-1080" width="1920" height="1040" />
     </state>
+    <state x="757" y="-629" key="NewPhpFileDialog/0.0.1536.824/4.-1080.1920.1040@4.-1080.1920.1040" timestamp="1604942528852" />
     <state x="659" y="455" key="NewPhpFileDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1604879328942" />
     <state x="0" y="164" key="SettingsEditor" timestamp="1603267375853">
       <screen x="0" y="0" width="1680" height="1050" />

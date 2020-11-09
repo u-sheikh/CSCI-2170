@@ -26,11 +26,7 @@
 <body>
 <?php
 
-require_once 'serverLogin.php';
-$conn = new mysqli($serverName, $dbName, $user, $password);
-if($conn->connect_error){
-     echo mysqli_connect_error();
-}
+include_once "function.php";
 $myquery = "SELECT * FROM users"; //create SQL query
 $result = $conn->query($myquery); //query database
 if ($result->num_rows > 0) { //see anything is returned back while ($row = $result->fetch_assoc()) {//result as assoc. array

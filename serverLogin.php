@@ -1,11 +1,7 @@
-<DOCTYPE HTML>
-<html>
-<?php
 
-$serverName='localhost';
-$dbName='picturegram';
-$user='root';
-$password='root';
-
+<?php // server login.php
+$db_hostname = 'localhost';
+$db_username = 'root';  //your username
+$db_password = 'root'; //your password
+$db_database = 'picturegram'; //database name
 ?>
-</html>>
