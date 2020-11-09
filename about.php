@@ -25,17 +25,12 @@
 
 <body>
 <?php
-
 include_once "function.php";
-$myquery = "SELECT * FROM users"; //create SQL query
-$result = $conn->query($myquery); //query database
-if ($result->num_rows > 0) { //see anything is returned back while ($row = $result->fetch_assoc()) {//result as assoc. array
-printf ("%d (%s, %s, %d)<br>", $row["aboutImage"]);
-    }
-else {
-echo "Nothing here to display! Sorry!";
-}
-$conn->close();
+$myquery= "SELECT * FROM users";
+$result = $conn->query($myquery);
+if ($result = $conn->query($myquery)) {
+    while ($row = $result->fetch_assoc()) {
+        echo "%s (%s, %s, %s)<br>", $row["userid"], $row["about"], $row["name"];
 
 //$conn = mysqli_connect($serverName,$dbName,$userName,$userPassword);
 //if (!$conn){
@@ -74,7 +69,7 @@ $conn->close();
 
 
   <!-- Page Header -->
-  <header class="masthead" style="background-image: url('img/dal-about.jpg')">
+  <header class="masthead" style="background-image: url('img/<?php $row["aboutImage"] ?>)">
     <div class="overlay"></div>
     <div class="container">
       <div class="row">
@@ -118,6 +113,16 @@ $conn->close();
   <!-- Custom scripts for this template -->
   <script src="js/clean-blog.min.js"></script>
 
+<?php
+
+    }
+}
+else {
+    echo "Nothing here to display! Sorry!";
+}
+$conn->close();
+
+?>
 </body>
 
 </html>
