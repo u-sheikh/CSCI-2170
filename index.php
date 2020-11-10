@@ -74,9 +74,10 @@
 
           <?php
 //
-//          require_once 'serverLogin.php';
-//
-//
+          include_once 'function.php';
+          $myquery= "SELECT * FROM posts";
+                //echo row [key] --> columns --> line file 1 post table
+
 //          $conn = mysqli_connect($serverName,$dbName,$userName,$userPassword);
 //          if (!$conn){
 //              die("connection failed".mysqli_connect_error());
