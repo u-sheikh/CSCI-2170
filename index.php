@@ -75,8 +75,12 @@
           <?php
 //
           include_once 'function.php';
-          $myquery= "SELECT * FROM posts";
+          $myquery= "SELECT * FROM posts ORDER by postid DESC";
                 //echo row [key] --> columns --> line file 1 post table
+          $result = $conn->query($myquery);
+          if ($result = $conn->query($myquery)) {
+          while ($row = $result->fetch_assoc()) {
+
 
 //          $conn = mysqli_connect($serverName,$dbName,$userName,$userPassword);
 //          if (!$conn){
@@ -84,39 +88,48 @@
 //          }
 //            mysqli_close($conn);
           //following line of  code is used to open the csv file.
-          $file_open = fopen("posts.csv", "r");
-          fgetcsv($file_open);
           //The while loop goes through the posts.csv file and passes information to pos.pho
           // and prints useful information in index.php such as images and authors and dates these images were posted.
-          while ($line_file = fgetcsv($file_open)) {
+
               # code...
 
               // the href takes in the data from the csv file like image information and comments file name
               // that are then being passed onto the post.php page
               ?>
-             <a href="post.php?title=<?php echo($line_file[1]);?>&comment=<?php echo($line_file[4])?>" >
-              <img src="img/<?php  echo($line_file[1]); ?>" style = " width: 720px; height: 380px "> </a>
+             <a href="post.php?title=<?php echo($row["postImage"]);?>&comment=<?php echo($row["post"])?>" >
+              <img src="img/<?php  echo($row["postImage"]); ?>" style = " width: 720px; height: 380px "> </a>
 
 
               <?php
               // gets the caption for the image dynamically
-              echo file_get_contents($line_file[3])."<br>";
+//              echo file_get_contents($line_file[3])."<br>";
               echo ("posted By  ");
                 // following line will display the author name.
               ?>
-              <a href="about.php" > <?php echo ($line_file[2]);?> </a>
+              <a href="about.php" > <?php echo ($row["post"]);?> </a>
+              <br>
               <?php
               echo(" on ");
               // following line will set the time zone to halifax.
               date_default_timezone_set('America/Halifax');
-              echo( date("F jS, Y - g:ia", $line_file[0]))."<br>";
+              echo( date("F jS, Y - g:ia", $row["date"]))."<br>";
 
 
-          }
-          ?><br>
-          <br>
 
+          ?>
+              <br>
+              <br>
 
+<?php
+
+    }
+}
+else {
+    echo "Nothing here to display! Sorry!";
+}
+$conn->close();
+//
+//?>
 
         <hr>
         <!-- Pager -->

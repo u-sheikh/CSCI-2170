@@ -32,12 +32,6 @@ if ($result = $conn->query($myquery)) {
     while ($row = $result->fetch_assoc()) {
 //        echo "%s (%s, %s, %s)<br>", $row["userid"];
 
-//$conn = mysqli_connect($serverName,$dbName,$userName,$userPassword);
-//if (!$conn){
-//    die("connection failed".mysqli_connect_error());
-//}
-//
-//mysqli_close($conn);
 
 ?>
   <!-- Navigation -->
