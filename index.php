@@ -96,7 +96,7 @@
               // the href takes in the data from the csv file like image information and comments file name
               // that are then being passed onto the post.php page
               ?>
-             <a href="post.php?title=<?php echo($row["postImage"]);?>&comment=<?php echo($row["post"])?>" >
+             <a href="post.php?title=<?php echo($row["postImage"]);?>&comment=<?php echo($row["post"]);?> &postId=<?php echo($row["postid"]);?>" >
               <img src="img/<?php  echo($row["postImage"]); ?>" style = " width: 720px; height: 380px "> </a>
 
 

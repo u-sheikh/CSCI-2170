@@ -132,7 +132,11 @@
                             echo( date("F jS, Y - g:ia", time()))."<br>";
                             echo ($name);
                             #todo: add sql query here for var name
-                            $myquery_insert= "INSERT INTO comments(postid,COMMENT,date) VALUES (5, $name,CURRENT_TIMESTAMP) ;";
+                            $postId = $_GET['postId'];
+                            echo $postId;
+                            echo "post";
+
+                            $myquery_insert= "INSERT INTO comments(userid,postid,COMMENT) VALUES (1,'$postId', '$name');";
                             $result = $conn->query($myquery_insert);
                             if ($conn->query($myquery_insert) === TRUE) {
                                 echo "New record created successfully";
