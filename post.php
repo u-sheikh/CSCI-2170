@@ -53,13 +53,16 @@
   </nav>
 
   <?php
+  $getTitle= $_GET["title"];
+  $getComment= $_POST["comment"];
+
   // following variables take in information passed from the index.php page.
   // get title  variable is responsible for taking image data
   //get comments variable is responsible for taking in comments information and using that information
   // to call files containing comments and then displaying
-    $getTitle= $_GET["title"];
-  $getComment= $_GET["comment"];
   ?>
+
+
 
   <!-- Page Header -->
   <header class="masthead" style="background-image: url('img/<?php echo($getTitle);?>')">
@@ -88,8 +91,8 @@
                 <h5 class="card-header">Leave a Comment:</h5>
                 <div class="card-body">
                     <!-- the following lines of code will display new comments added on a specific images along with already existing comments  -->
-                    <form method="post" action="post.php?title=<?php echo($getTitle);?>&comment=<?php echo($getComment)?>">
-                        <input type="hidden" name="title" value="<?php echo $getComment; ?>"/>
+                    <form method="post" action="post.php?title=<?php echo($getTitle);?>">
+                        <input type="hidden" name="title" value="<?php echo ($getComment); ?>"/>
                         <input type="text" name="comment" />
                         <div class="form-group">
 
@@ -108,6 +111,35 @@
 
                     <h5 class="mt-0"> </h5>
                     <?php
+                    include_once 'function.php';
+                    $myquery= "SELECT posts.postImage,comments.COMMENT FROM comments,posts WHERE posts.postid = comments.postid";
+                    //echo row [key] --> columns --> line file 1 post table
+                    $result = $conn->query($myquery);
+                    if ($result = $conn->query($myquery)) {
+                        while ($row = $result->fetch_assoc()) {
+                            // comment id equal post id comments.postId == post.postId postImage
+                            // if postImage == titles
+                            if($getTitle == $row["postImage"]) {
+                                ?>
+                                <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
+
+                                <?php
+                                echo( date("F jS, Y - g:ia", time()))."<br>";
+                                echo $row["COMMENT"];
+
+                            }
+                            ?>
+                    <?php
+                    // get image from index that we will check if it is equal to comment.
+
+
+                        }
+                    }
+                    else {
+                        echo "Nothing here to display! Sorry!";
+                    }
+
+
                     // the following lines of code do: 1. get contents from the comment files for the specific images selected.
                     //2. create an array for the comments that is then used to display all the comments for a post.
                     $content = file_get_contents($getComment);
@@ -120,9 +152,9 @@
                         }
                         else {
                             $name = $_POST['comment'];
-                            ?>
+//                            ?>
                             <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
-                            <?php
+<!--                            --><?php
                             echo( date("F jS, Y - g:ia", time()))."<br>";
                             echo ($name)."<br>";
                             $fileWrite = fopen("comments.txt","w");
@@ -135,7 +167,6 @@
 
                         ?>
 
-                        <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
                         <?php
                         date_default_timezone_set('America/Halifax');
                         echo( date("F jS, Y - g:ia", $array[$i]))."<br>";
@@ -143,6 +174,15 @@
                         echo "<br>";
                     }
                     ?>
+
+
+                    <?php
+
+                    #todo: add sql statements to the post file where a comment is added.
+
+                    $conn->close();
+                    //
+                    //?>
 
                 </div>
             </div>
