@@ -52,27 +52,14 @@
     </div>
   </nav>
 
-  <?php
-  $getTitle= $_GET["title"];
-  $getPost = $_GET["comment"];
-  $getComment= $_POST["comment"];
-  include_once 'function.php';
-  // following variables take in information passed from the index.php page.
-  // get title  variable is responsible for taking image data
-  //get comments variable is responsible for taking in comments information and using that information
-  // to call files containing comments and then displaying
-  ?>
-
-
-
   <!-- Page Header -->
-  <header class="masthead" style="background-image: url('img/<?php echo($getTitle);?>')">
+  <header class="masthead" style="background-image: url('img/<?php echo($_GET['title']);?>')">
     <div class="overlay"></div>
     <div class="container">
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
           <div class="post-heading">
-            <h1><?php echo $getPost?></h1>
+            <h1><?php echo $_GET['comment']?></h1>
             <span class="meta">Posted by
               <a href="about.php">Lorem Nullam</a>
               on August 24, 2019</span>
@@ -92,8 +79,8 @@
                 <h5 class="card-header">Leave a Comment:</h5>
                 <div class="card-body">
                     <!-- the following lines of code will display new comments added on a specific images along with already existing comments  -->
-                    <form method="post" action="post.php?title=<?php echo($getTitle);?>">
-                        <input type="hidden" name="title" value="<?php echo ($getComment); ?>"/>
+                    <form method="post" action="post.php?title=<?php echo $_GET['title'];?>">
+                        <input type="hidden" name="title" value="<?php echo $_GET['comment']; ?>"/>
                         <input type="text" name="comment" />
                         <div class="form-group">
 
@@ -111,94 +98,57 @@
 
 
                     <h5 class="mt-0"> </h5>
-
                     <?php
-                    #todo: add sql statements to the post file where a comment is added. according to post name
-                    // the following lines of code do: 1. get contents from the comment files for the specific images selected.
-                    //2. create an array for the comments that is then used to display all the comments for a post.
-                    $content = file_get_contents($getComment);
-                    $array = explode("\n",$content);
-                    $arrayLen= count($array);
-                    // the following if-else checks and adds newly typed comments to the already existing comments of an image.
+                    include_once 'function.php';
+
+                    $postid = $_GET['post_id'];
+                    $userid = 1;
+                    $name = $_POST['comment'];
+                    echo $postid;
+                    $date = date("Y-m-d  H:i:s", time());
+
                     if(isset($_POST['comment'])) {
                         if(empty($_POST['comment'])=='Submit'){
-                            $name = "(Not entered)";echo $name;
+
                         }
                         else {
-                            $name = $_POST['comment'];
-//                            ?>
-                            <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
-                            <!--                            --><?php
-                            echo( date("F jS, Y - g:ia", time()))."<br>";
-                            echo ($name);
-                            #todo: add sql query here for var name
-                            $postId = $_GET['postId'];
-                            echo $postId;
-                            echo "post";
-
-                            $myquery_insert= "INSERT INTO comments(userid,postid,COMMENT) VALUES (1,'$postId', '$name');";
-                            $result = $conn->query($myquery_insert);
-                            if ($conn->query($myquery_insert) === TRUE) {
-                                echo "New record created successfully";
-                            }
+                            date_default_timezone_set('America/Halifax');
+                            $sql= "INSERT INTO comments (commentid, userid, postid, COMMENT, date) VALUES (NULL, '$userid', '$postid', '$name', '$date')";
+                            echo "<br>";
+                            if ($conn->query($sql) === TRUE) {
+                                echo "New record created successfully";}
                             else {
-                                echo "Error: " . $myquery_insert. "<br>" . $conn->error;
-                            }
-
+                                echo "Error: " . $sql. "<br>" . $conn->error;}
                         }
-                    }
-                    for ($i=0; $i<$arrayLen; $i=$i+3){
-
-
-                        ?>
-
-                        <?php
-                        date_default_timezone_set('America/Halifax');
-                        echo( date("F jS, Y - g:ia", $array[$i]))."<br>";
-                        echo($array[$i+1])."<br>";
-
-
                     }
                     ?>
 
                     <?php
-
+                    $getTitle= $_GET['title'];
                     $myquery= "SELECT posts.postImage,comments.COMMENT FROM comments,posts WHERE posts.postid = comments.postid";
                     //echo row [key] --> columns --> line file 1 post table
                     $result = $conn->query($myquery);
                     if ($result = $conn->query($myquery)) {
+                        date_default_timezone_set('America/Halifax');
                         while ($row = $result->fetch_assoc()) {
                             // comment id equal post id comments.postId == post.postId postImage
                             // if postImage == titles
                             if($getTitle == $row["postImage"]) {
                                 ?>
-                                <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
 
                                 <?php
-                                echo( date("F jS, Y - g:ia", time()))."<br>";
+
+                                echo( date("D. F jS, Y - H:i A", time()))."<br>";
                                 echo $row["COMMENT"]."<br>";
 
                             }
-                            ?>
-                    <?php
-                    // get image from index that we will check if it is equal to comment.
-
-
                         }
                     }
                     else {
-                        echo "Nothing here to display! Sorry!";
+                    echo "Nothing here to display! Sorry!";
                     }
-                    ?>
-
-
-                    <?php
-
-
-
                     $conn->close();
-                    //
-                    //?>
+                    ?>
 
                 </div>
             </div>

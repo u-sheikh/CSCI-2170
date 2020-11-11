@@ -75,7 +75,7 @@
           <?php
 //
           include_once 'function.php';
-          $myquery= "SELECT * FROM posts ORDER by postid DESC";
+          $myquery= "SELECT * FROM posts ORDER by date DESC";
                 //echo row [key] --> columns --> line file 1 post table
           $result = $conn->query($myquery);
           if ($result = $conn->query($myquery)) {
@@ -95,8 +95,10 @@
 
               // the href takes in the data from the csv file like image information and comments file name
               // that are then being passed onto the post.php page
+
+
               ?>
-             <a href="post.php?title=<?php echo($row["postImage"]);?>&comment=<?php echo($row["post"]);?> &postId=<?php echo($row["postid"]);?>" >
+             <a href="post.php?title=<?php echo($row["postImage"])?>&comment=<?php echo($row["post"])?> &post_id=<?php echo($row["postid"])?>" >
               <img src="img/<?php  echo($row["postImage"]); ?>" style = " width: 720px; height: 380px "> </a>
 
 
