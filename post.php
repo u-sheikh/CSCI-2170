@@ -54,8 +54,9 @@
 
   <?php
   $getTitle= $_GET["title"];
+  $getPost = $_GET["comment"];
   $getComment= $_POST["comment"];
-
+  include_once 'function.php';
   // following variables take in information passed from the index.php page.
   // get title  variable is responsible for taking image data
   //get comments variable is responsible for taking in comments information and using that information
@@ -71,7 +72,7 @@
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
           <div class="post-heading">
-            <h1>Lorem ipsum</h1>
+            <h1><?php echo $getPost?></h1>
             <span class="meta">Posted by
               <a href="about.php">Lorem Nullam</a>
               on August 24, 2019</span>
@@ -110,36 +111,9 @@
 
 
                     <h5 class="mt-0"> </h5>
+
                     <?php
-                    include_once 'function.php';
-                    $myquery= "SELECT posts.postImage,comments.COMMENT FROM comments,posts WHERE posts.postid = comments.postid";
-                    //echo row [key] --> columns --> line file 1 post table
-                    $result = $conn->query($myquery);
-                    if ($result = $conn->query($myquery)) {
-                        while ($row = $result->fetch_assoc()) {
-                            // comment id equal post id comments.postId == post.postId postImage
-                            // if postImage == titles
-                            if($getTitle == $row["postImage"]) {
-                                ?>
-                                <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
-
-                                <?php
-                                echo( date("F jS, Y - g:ia", time()))."<br>";
-                                echo $row["COMMENT"];
-
-                            }
-                            ?>
-                    <?php
-                    // get image from index that we will check if it is equal to comment.
-
-
-                        }
-                    }
-                    else {
-                        echo "Nothing here to display! Sorry!";
-                    }
-
-
+                    #todo: add sql statements to the post file where a comment is added. according to post name
                     // the following lines of code do: 1. get contents from the comment files for the specific images selected.
                     //2. create an array for the comments that is then used to display all the comments for a post.
                     $content = file_get_contents($getComment);
@@ -154,11 +128,18 @@
                             $name = $_POST['comment'];
 //                            ?>
                             <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
-<!--                            --><?php
+                            <!--                            --><?php
                             echo( date("F jS, Y - g:ia", time()))."<br>";
-                            echo ($name)."<br>";
-                            $fileWrite = fopen("comments.txt","w");
-                            fwrite($getComment,$name);
+                            echo ($name);
+                            #todo: add sql query here for var name
+                            $myquery_insert= "INSERT INTO comments(postid,COMMENT,date) VALUES (5, $name,CURRENT_TIMESTAMP) ;";
+                            $result = $conn->query($myquery_insert);
+                            if ($conn->query($myquery_insert) === TRUE) {
+                                echo "New record created successfully";
+                            }
+                            else {
+                                echo "Error: " . $myquery_insert. "<br>" . $conn->error;
+                            }
 
                         }
                     }
@@ -171,14 +152,45 @@
                         date_default_timezone_set('America/Halifax');
                         echo( date("F jS, Y - g:ia", $array[$i]))."<br>";
                         echo($array[$i+1])."<br>";
-                        echo "<br>";
+
+
+                    }
+                    ?>
+
+                    <?php
+
+                    $myquery= "SELECT posts.postImage,comments.COMMENT FROM comments,posts WHERE posts.postid = comments.postid";
+                    //echo row [key] --> columns --> line file 1 post table
+                    $result = $conn->query($myquery);
+                    if ($result = $conn->query($myquery)) {
+                        while ($row = $result->fetch_assoc()) {
+                            // comment id equal post id comments.postId == post.postId postImage
+                            // if postImage == titles
+                            if($getTitle == $row["postImage"]) {
+                                ?>
+                                <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
+
+                                <?php
+                                echo( date("F jS, Y - g:ia", time()))."<br>";
+                                echo $row["COMMENT"]."<br>";
+
+                            }
+                            ?>
+                    <?php
+                    // get image from index that we will check if it is equal to comment.
+
+
+                        }
+                    }
+                    else {
+                        echo "Nothing here to display! Sorry!";
                     }
                     ?>
 
 
                     <?php
 
-                    #todo: add sql statements to the post file where a comment is added.
+
 
                     $conn->close();
                     //
