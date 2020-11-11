@@ -72,13 +72,13 @@
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">
 
-          <?php
+        <?php
 //
-          include_once 'function.php';
-          $myquery= "SELECT * FROM posts ORDER by date DESC";
+        include_once 'function.php';
+        $myquery= "SELECT * FROM posts ORDER by posts.date DESC";
                 //echo row [key] --> columns --> line file 1 post table
-          $result = $conn->query($myquery);
-          if ($result = $conn->query($myquery)) {
+        $result = $conn->query($myquery);
+        if ($result = $conn->query($myquery)) {
           while ($row = $result->fetch_assoc()) {
 
 
@@ -97,8 +97,8 @@
               // that are then being passed onto the post.php page
 
 
-              ?>
-             <a href="post.php?title=<?php echo($row["postImage"])?>&comment=<?php echo($row["post"])?> &post_id=<?php echo($row["postid"])?>" >
+            ?>
+            <a href="post.php?title=<?php echo($row["postImage"])?>&comment=<?php echo($row["post"])?> &post_id=<?php echo($row["postid"])?>" >
               <img src="img/<?php  echo($row["postImage"]); ?>" style = " width: 720px; height: 380px "> </a>
 
 
@@ -118,48 +118,48 @@
 
 
 
-          ?>
+              ?>
               <br>
               <br>
 
-<?php
+              <?php
 
-    }
-}
-else {
-    echo "Nothing here to display! Sorry!";
-}
-$conn->close();
+            }
+          }
+          else {
+            echo "Nothing here to display! Sorry!";
+          }
+          $conn->close();
 //
 //?>
 
-        <hr>
-        <!-- Pager -->
-        <div class="clearfix">
-          <a class="btn btn-primary float-right" href="#">Older Posts &rarr;</a>
-        </div>
+<hr>
+<!-- Pager -->
+<div class="clearfix">
+  <a class="btn btn-primary float-right" href="#">Older Posts &rarr;</a>
+</div>
+</div>
+</div>
+</div>
+
+<hr>
+
+<!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <p class="copyright text-muted">Copyright &copy; Your Website 2020</p>
       </div>
     </div>
   </div>
+</footer>
+<!-- Bootstrap core JavaScript -->
+<script src="vendor/jquery/jquery.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-  <hr>
-
-  <!-- Footer -->
-  <footer>
-      <div class="container">
-          <div class="row">
-              <div class="col-lg-8 col-md-10 mx-auto">
-                  <p class="copyright text-muted">Copyright &copy; Your Website 2020</p>
-              </div>
-          </div>
-      </div>
-  </footer>
-  <!-- Bootstrap core JavaScript -->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-  <!-- Custom scripts for this template -->
-  <script src="js/clean-blog.min.js"></script>
+<!-- Custom scripts for this template -->
+<script src="js/clean-blog.min.js"></script>
 
 </body>
 
