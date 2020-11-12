@@ -99,7 +99,7 @@
 
 
             ?>
-            <a href="post.php?title=<?php echo($row["postImage"])?>&comment=<?php echo($row["post"])?> &post_id=<?php echo($row["postid"])?>" >
+            <a href="post.php?title=<?php echo($row["postImage"])?>&comment=<?php echo($row["post"])?> &post_id=<?php echo($row["postid"])?> &post_date=<?php echo($row["date"])?>" >
               <img src="img/<?php  echo($row["postImage"]); ?>" style = " width: 720px; height: 380px "> </a>
 
 

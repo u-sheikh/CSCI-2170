@@ -81,7 +81,7 @@ if ($result = $conn->query($myquery)) {
   <div class="container">
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">
-          <p>  <?php echo ($row["about"]."\n"); ?> </p>
+          <p>  <?php echo ($row["about"]."<br>"); ?> </p>
 
         </div>
     </div>

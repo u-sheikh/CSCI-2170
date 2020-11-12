@@ -61,7 +61,8 @@
                 <div class="post-heading">
                     <h1><?php echo $_GET['comment']?></h1>
                     <span class="meta">Posted by
-              <a href="about.php">Lorem Nullam</a>
+              <a href="about.php">Lorem Nullam on <?php echo($_GET['post_date'])?></a>
+
             </span>
                 </div>
             </div>
