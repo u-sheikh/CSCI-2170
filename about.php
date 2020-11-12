@@ -45,10 +45,10 @@ if ($result = $conn->query($myquery)) {
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link" href="index.php"><?php echo $row["name"];?></a>
+            <a class="nav-link" href="index.php"> Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="about.php">About</a>
+            <a class="nav-link" href="about.php"><?php echo $row["name"];?></a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="addPost.php">Add Post</a>
@@ -81,7 +81,8 @@ if ($result = $conn->query($myquery)) {
   <div class="container">
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">
-          <p>  <?php echo $row["about"]; ?></p>
+          <p>  <?php echo ($row["about"]."\n"); ?> </p>
+
         </div>
     </div>
   </div>

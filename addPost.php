@@ -71,10 +71,81 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">
-     <h3 class="post-title">   Form to add new posts will be added later </h3>
+     <h3 class="post-title">  ADD a post </h3>
       </div>
     </div>
   </div>
+
+
+  <article>
+  <div class="container">
+      <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+              <!-- Comments Form -->
+              <div class="card my-4">
+                  <h5 class="card-header">Add A Post:</h5>
+                  <div class="card-body">
+                      <!-- the following lines of code will display new comments added on a specific images along with already existing comments  -->
+                      <form method="post"> Post:
+                          <input type="text" class="form-control" name="newPost" />
+                          <div class="form-group">
+
+                          </div>
+
+
+                      <form method="post"> Image FileName:
+                          <input type="text" class="form-control" name="ImageFile" />
+                          <div class="form-group">
+
+                          </div>
+                          <button type="submit" class="btn btn-primary" name="Submits">Submit</button>
+                      </form>
+                      </form>
+
+                  </div>
+              </div>
+              <?php
+              include_once 'function.php';
+
+              $name = $_POST['newPost'];
+              $name2= $_POST['ImageFile'];
+
+              $date = date("Y-m-d  H:i:s", time());
+
+              if(isset($_POST['Submits'])) {
+                  if(empty($_POST['newPost'])=='submit'){
+
+                  }
+                  else {
+                      date_default_timezone_set('America/Halifax');
+                      $sql= "INSERT INTO posts (postid, userid, postImage, post, date) VALUES (NULL, '1', '$name2', '$name', CURRENT_TIMESTAMP);";
+                      // echo "<br>";
+                      if ($conn->query($sql) === TRUE) {
+                          // echo "New record created successfully";
+                      }
+                      else {
+                          // echo "Error: " . $sql. "<br>" . $conn->error;
+                      }
+                  }
+              }
+              ?>
+              <!-- Single Comment -->
+              <div class="media mb-4">
+
+                  <div class="media-body">
+
+
+                      <h5 class="mt-0"> </h5
+
+                  </div>
+              </div>
+
+
+          </div>
+      </div>
+  </div>
+  </article>
+
 
   <hr>
 

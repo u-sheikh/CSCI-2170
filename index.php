@@ -77,6 +77,7 @@
         include_once 'function.php';
         $myquery= "SELECT * FROM posts ORDER by posts.date DESC";
                 //echo row [key] --> columns --> line file 1 post table
+
         $result = $conn->query($myquery);
         if ($result = $conn->query($myquery)) {
           while ($row = $result->fetch_assoc()) {
@@ -105,12 +106,18 @@
               <?php
               // gets the caption for the image dynamically
 //              echo file_get_contents($line_file[3])."<br>";
-              echo ("posted By  ");
+
+
+//              $myquery_user= "SELECT name FROM users;";
+//              //echo row [key] --> columns --> line file 1 post table
+//              $result_user = $conn->query($myquery_user);
+//              echo $result_user;
                 // following line will display the author name.
               ?>
               <a href="about.php" > <?php echo ($row["post"]);?> </a>
               <br>
               <?php
+              echo ("posted By: Lorem Nullam ");
               echo(" on ");
               // following line will set the time zone to halifax.
               date_default_timezone_set('America/Halifax');

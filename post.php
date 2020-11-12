@@ -62,7 +62,7 @@
                     <h1><?php echo $_GET['comment']?></h1>
                     <span class="meta">Posted by
               <a href="about.php">Lorem Nullam</a>
-            on August 24, 2019</span>
+            </span>
                 </div>
             </div>
         </div>
@@ -137,10 +137,17 @@ if(isset($_POST['Submits'])) {
                                 // if postImage == titles
                                 if($getTitle == $row["postImage"]) {
                                     ?>
+                                    <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
+                                    <?php
+
+                                    echo( date("D. F jS, Y - H:i A", time()))."<br>";
+                                    echo $row["COMMENT"]."<br>";
+
+                                    ?>
+
 
                                     <?php
-                                    echo $row["COMMENT"]."<br>";
-                                    echo( date("D. F jS, Y - H:i A", time()))."<br>";
+
                                 }
                             }
                         }
@@ -149,6 +156,8 @@ if(isset($_POST['Submits'])) {
                         }
                         $conn->close();
                         ?>
+
+
                     </div>
                 </div>
 
