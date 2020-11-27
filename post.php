@@ -91,7 +91,7 @@ if(isset($_POST['Submits'])) {
             // echo "New record created successfully";
         }
         else {
-            // echo "Error: " . $sql. "<br>" . $conn->error;
+            echo "Error: " . $sql. "<br>" . $conn->error;
         }
     }
 }

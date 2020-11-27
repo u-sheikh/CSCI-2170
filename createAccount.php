@@ -1,30 +1,3 @@
-<?php
-
-session_start();
-$signedIn = false;
-
-if(isset($_SESSION['user_id'])){
-
-  $signedIn = true;
-
-}
-
-if(isset($_POST['user_id'])){
-  $_SESSION['user_id'] = $_POST]['user_id'];
-  header("index.php");
-  die();
-}
-else {
-  # code...
-  unset($_SESSION['user_id']);
-  header("login.php");
-  die();
-}
-
-
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 

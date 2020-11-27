@@ -19,10 +19,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f1d473a8-f230-4cf5-9c2a-d22424626a3a" name="Default Changelist" comment="final push">
+    <list default="true" id="f1d473a8-f230-4cf5-9c2a-d22424626a3a" name="Default Changelist" comment="function.php included">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/about.php" beforeDir="false" afterPath="$PROJECT_DIR$/about.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/post.php" beforeDir="false" afterPath="$PROJECT_DIR$/post.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -80,6 +78,7 @@
       <workItem from="1604879266469" duration="3607000" />
       <workItem from="1604952959984" duration="130000" />
       <workItem from="1604953444359" duration="612000" />
+      <workItem from="1605235338494" duration="85000" />
     </task>
     <task id="LOCAL-00001" summary="cont to win">
       <created>1604951680044</created>
@@ -109,14 +108,7 @@
       <option name="project" value="LOCAL" />
       <updated>1605123740867</updated>
     </task>
-    <task id="LOCAL-00005" summary="final push">
-      <created>1605143769891</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1605143769891</updated>
-    </task>
-    <option name="localTasksCounter" value="6" />
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -137,8 +129,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="cont to win" />
     <MESSAGE value="function.php included" />
-    <MESSAGE value="final push" />
-    <option name="LAST_COMMIT_MESSAGE" value="final push" />
+    <option name="LAST_COMMIT_MESSAGE" value="function.php included" />
   </component>
   <component name="WindowStateProjectService">
     <state x="86" y="187" key="#CLI_Interpreters" timestamp="1603267368870">
@@ -169,10 +160,10 @@
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state x="0" y="164" key="SettingsEditor/0.0.1680.1050@0.0.1680.1050" timestamp="1603267375853" />
-    <state x="507" y="-818" key="Vcs.Push.Dialog.v2" timestamp="1605143772184">
+    <state x="507" y="-818" key="Vcs.Push.Dialog.v2" timestamp="1605123742209">
       <screen x="4" y="-1080" width="1920" height="1040" />
     </state>
-    <state x="507" y="-818" key="Vcs.Push.Dialog.v2/0.0.1536.824/4.-1080.1920.1040@4.-1080.1920.1040" timestamp="1605143772184" />
+    <state x="507" y="-818" key="Vcs.Push.Dialog.v2/0.0.1536.824/4.-1080.1920.1040@4.-1080.1920.1040" timestamp="1605123742209" />
     <state x="440" y="265" key="Vcs.Push.Dialog.v2/0.0.1680.1050@0.0.1680.1050" timestamp="1604953078732" />
     <state x="96" y="-988" width="1736" height="856" maximized="true" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1605139080266">
       <screen x="4" y="-1080" width="1920" height="1040" />
