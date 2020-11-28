@@ -1,25 +1,41 @@
 <?php
 
 session_start();
-$signedIn = false;
+include_once 'function.php';
+$loggedIn = false;
 
-if(isset($_SESSION['user_id'])){
 
-  $signedIn = true;
+if(isset($_SESSION['user_name'])){
+
+  $loggedIn = true;
 
 }
 
-if(isset($_POST['user_id'])){
-  $_SESSION['user_id'] = $_POST]['user_id'];
-  header("index.php");
-  die();
-}
-else {
-  # code...
-  unset($_SESSION['user_id']);
-  header("login.php");
-  die();
-}
+
+$myquery= "SELECT * FROM login where username = ? and password = ?";
+//echo row [key] --> columns --> line file 1 post table
+
+$result = $conn->query($myquery);
+
+
+//if(isset($_POST['user_name'])){
+//  $_SESSION['user_name'] = $_POST['user_name'];
+//  header("index.php");
+//  die();
+//
+//}
+//else {
+//  # code...
+//  unset($_SESSION['user_name']);
+//  header("login.php");
+//  die();
+//
+//}
+
+
+
+
+
 
 
 
@@ -105,7 +121,7 @@ else {
           <div class="control-group">
             <div class="form-group floating-label-form-group controls">
               <label>User Name</label>
-              <input type="text" class="form-control" placeholder="User Name" id="email" required data-validation-required-message="Please enter your User Name.">
+              <input type="text" class="form-control" placeholder="User Name" id="username" required data-validation-required-message="Please enter your User Name.">
               <p class="help-block text-danger"></p>
             </div>
           </div>
@@ -118,7 +134,7 @@ else {
           </div>
           <br>
           <div id="success"></div>
-          <button type="submit" class="btn btn-primary" id="sendMessageButton">submit</button>
+          <button type="submit" class="btn btn-primary" id="loginButton">submit</button>
         </form>
       </div>
     </div>
@@ -148,6 +164,10 @@ else {
   <!-- Custom scripts for this template -->
   <script src="js/clean-blog.min.js"></script>
 
+
+<?php
+
+?>
 </body>
 
 </html>
