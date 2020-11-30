@@ -20,10 +20,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f1d473a8-f230-4cf5-9c2a-d22424626a3a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/logout.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/about.php" beforeDir="false" afterPath="$PROJECT_DIR$/about.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/addPost.php" beforeDir="false" afterPath="$PROJECT_DIR$/addPost.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/createAccount.php" beforeDir="false" afterPath="$PROJECT_DIR$/createAccount.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/about-bg.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/contact-bg.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/post-bg.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/login.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/post.php" beforeDir="false" afterPath="$PROJECT_DIR$/post.php" afterDir="false" />
@@ -86,7 +90,8 @@
       <workItem from="1605235338494" duration="85000" />
       <workItem from="1606494042159" duration="1205000" />
       <workItem from="1606495995475" duration="28000" />
-      <workItem from="1606518146799" duration="9587000" />
+      <workItem from="1606518146799" duration="57575000" />
+      <workItem from="1606702217236" duration="331000" />
     </task>
     <task id="LOCAL-00001" summary="cont to win">
       <created>1604951680044</created>
@@ -123,7 +128,14 @@
       <option name="project" value="LOCAL" />
       <updated>1606494313266</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="function.php included">
+      <created>1606538118799</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1606538118799</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -155,14 +167,18 @@
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state x="39" y="175" key="#PHP/0.0.1680.1050@0.0.1680.1050" timestamp="1603266763850" />
-    <state x="440" y="190" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1603329234763">
+    <state x="228" y="358" key="#SQL_Dialects" timestamp="1606702464709">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state x="440" y="190" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1603329234763" />
-    <state x="366" y="100" key="CommitChangelistDialog2" timestamp="1606494313079">
+    <state x="228" y="358" key="#SQL_Dialects/0.0.1680.1050@0.0.1680.1050" timestamp="1606702464709" />
+    <state x="440" y="190" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1606702489330">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state x="366" y="100" key="CommitChangelistDialog2/0.0.1680.1050@0.0.1680.1050" timestamp="1606494313079" />
+    <state x="440" y="190" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1606702489330" />
+    <state x="366" y="100" key="CommitChangelistDialog2" timestamp="1606538118539">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="366" y="100" key="CommitChangelistDialog2/0.0.1680.1050@0.0.1680.1050" timestamp="1606538118539" />
     <state x="96" y="-988" width="1736" height="856" key="DiffContextDialog" timestamp="1605137269276">
       <screen x="4" y="-1080" width="1920" height="1040" />
     </state>
@@ -175,18 +191,26 @@
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state x="0" y="164" key="SettingsEditor/0.0.1680.1050@0.0.1680.1050" timestamp="1603267375853" />
-    <state x="440" y="265" key="Vcs.Push.Dialog.v2" timestamp="1606496005020">
+    <state x="440" y="265" key="Vcs.Push.Dialog.v2" timestamp="1606538121479">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state x="507" y="-818" key="Vcs.Push.Dialog.v2/0.0.1536.824/4.-1080.1920.1040@4.-1080.1920.1040" timestamp="1605123742209" />
-    <state x="440" y="265" key="Vcs.Push.Dialog.v2/0.0.1680.1050@0.0.1680.1050" timestamp="1606496005020" />
-    <state x="96" y="-988" width="1736" height="856" maximized="true" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1605139080266">
-      <screen x="4" y="-1080" width="1920" height="1040" />
+    <state x="440" y="265" key="Vcs.Push.Dialog.v2/0.0.1680.1050@0.0.1680.1050" timestamp="1606538121479" />
+    <state x="96" y="-988" width="1736" height="856" maximized="true" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1606697910647">
+      <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state x="96" y="-988" width="1736" height="856" maximized="true" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1536.824/4.-1080.1920.1040@4.-1080.1920.1040" timestamp="1605139080266" />
     <state x="638" y="446" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1604953449277">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state x="638" y="446" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1680.1050@0.0.1680.1050" timestamp="1604953449277" />
+    <state x="541" y="157" width="597" height="735" key="find.popup" timestamp="1606679003681">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="541" y="157" width="597" height="735" key="find.popup/0.0.1680.1050@0.0.1680.1050" timestamp="1606679003681" />
+    <state x="150" y="233" width="670" height="676" key="search.everywhere.popup" timestamp="1606677521673">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="150" y="233" width="670" height="676" key="search.everywhere.popup/0.0.1680.1050@0.0.1680.1050" timestamp="1606677521673" />
   </component>
 </project>

@@ -1,12 +1,51 @@
+
 <?php
-session_start();
-if (!isset($_SESSION["loggedIn"]) || $_SESSION["loggedIn"]!== true){
-    header("login.php");
-    die();
-
+//session_start();
+include_once 'function.php';
+$_SESSION["loggedin"]= false;
+$loggedIn = false;
+if (isset($_POST["createAccount"])) {
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+    $image = $_POST['image'];
+    $about = $_POST['about'];
+    $name = $_POST['name'];
+    $myquery = "SELECT * FROM login where username = '$username'";
+    $result = $conn->query($myquery);
 }
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            $dbusername = $row["username"];
+            $dbpassword = $row["password"];
+        }
+    }
+    if ($username != $dbusername) {
 
 
+        $sql = "INSERT INTO users (name, about, aboutImage) VALUES ('$name', '$about', '$image')";
+        $conn->query($sql);
+        $insert_id = 0;
+
+        $insert_id = $conn->insert_id;
+
+        $sql2 = "INSERT INTO login ( userID, username,password) VALUES ( '$insert_id','$username', '$password')";
+        $conn->query($sql2);
+
+        echo "New user created successfully";
+        $_SESSION["loggedin"] = true;
+        $loggedIn = true;
+        header("location: index.php");
+
+
+
+    }
+    else{
+        echo "user already exists";
+    }
+
+
+
+$conn->close();
 
 ?>
 <!DOCTYPE html>
@@ -85,24 +124,45 @@ if (!isset($_SESSION["loggedIn"]) || $_SESSION["loggedIn"]!== true){
         <!-- Contact Form - Enter your email address on line 19 of the mail/contact_me.php file to make this form work. -->
         <!-- WARNING: Some web hosts do not allow emails to be sent through forms to common mail hosts like Gmail or Yahoo. It's recommended that you use a private domain email address! -->
         <!-- To use the contact form, your site must be on a live web host with PHP! The form will not work locally! -->
-        <form name="sentMessage" id="contactForm" novalidate>
+        <form method="post" name="sentMessage" action="createAccount.php" novalidate>
           <div class="control-group">
             <div class="form-group floating-label-form-group controls">
-              <label>User Name</label>
-              <input type="text" class="form-control" placeholder="User Name" id="email" required data-validation-required-message="Please enter your User Name.">
+              <label>Name</label>
+              <input type="text" class="form-control" placeholder=" Name" name="name" required data-validation-required-message="Please enter your  Name.">
               <p class="help-block text-danger"></p>
             </div>
           </div>
           <div class="control-group">
             <div class="form-group col-xs-12 floating-label-form-group controls">
-              <label>Password</label>
-              <input type="password" class="form-control" placeholder="Password" id="password" required data-validation-required-message="Please enter your Password.">
+              <label>Tell us about you</label>
+              <input type="text" class="form-control" placeholder="tell us about you" name="about" required data-validation-required-message="Please tell us about yourself.">
               <p class="help-block text-danger"></p>
             </div>
           </div>
+            <div class="control-group">
+                <div class="form-group col-xs-12 floating-label-form-group controls">
+                    <label>image</label>
+                    <input type="text" class="form-control"  placeholder=" your image"name="image" required data-validation-required-message="Please enter an image name.">
+                    <p class="help-block text-danger"></p>
+                </div>
+            </div>
+            <div class="control-group">
+                <div class="form-group col-xs-12 floating-label-form-group controls">
+                    <label>Username</label>
+                    <input type="text" class="form-control"  placeholder=" your name" name="username" required data-validation-required-message="Please enter a username.">
+                    <p class="help-block text-danger"></p>
+                </div>
+            </div>
+            <div class="control-group">
+                <div class="form-group col-xs-12 floating-label-form-group controls">
+                    <label>Password</label>
+                    <input type="password" class="form-control" placeholder="your password" name="password" required data-validation-required-message="Please enter a password.">
+                    <p class="help-block text-danger"></p>
+                </div>
+            </div>
           <br>
           <div id="success"></div>
-          <button type="submit" class="btn btn-primary" id="sendMessageButton">submit</button>
+          <button type="submit" class="btn btn-primary" name="createAccount" id="sendMessageButton">create Account</button>
         </form>
       </div>
     </div>

@@ -1,23 +1,60 @@
 <?php
 
 session_start();
-include_once 'function.php';
+require 'function.php';
+
 $loggedIn = false;
 
-
-if(isset($_SESSION['user_name'])){
+if(isset($_SESSION['loggedin'])){
 
   $loggedIn = true;
 
 }
 
 
-$myquery= "SELECT * FROM login where username = ? and password = ?";
+
 //echo row [key] --> columns --> line file 1 post table
 
-$result = $conn->query($myquery);
+if (isset($_POST['Username'])){
+
+    $username = $_POST['Username'];
+    $password = $_POST['Password'];
+    $myquery= "SELECT * FROM login where username = '".$username."' and password = '".$password."'";
+    $result = $conn->query($myquery);
 
 
+//        $result->bind_param("ss", $username, $password);
+//        $result->execute();
+    if ($result->num_rows>0){
+
+        while ($row = $result->fetch_assoc()){
+            $dbusername = $row["username"];
+            $dbpassword = $row["password"];
+            $dbuserID= $row["userID"];
+            echo "Line 14";
+            if ($username == $dbusername && $password == $dbpassword){
+                $_SESSION['User_Name'] = $dbusername;
+//                    $_SESSION['Password'] = $dbpassword;
+                $_SESSION['user_ID'] = $dbuserID;
+                $_SESSION['loggedin'] = true;
+                $loggedIn = true;
+                break;
+
+            }
+        }
+    }
+
+
+}
+
+if ($loggedIn==true){
+//    echo "Logged In";
+    header("location: index.php");
+}
+
+//
+//session_destroy();
+//
 //if(isset($_POST['user_name'])){
 //  $_SESSION['user_name'] = $_POST['user_name'];
 //  header("index.php");
@@ -31,12 +68,6 @@ $result = $conn->query($myquery);
 //  die();
 //
 //}
-
-
-
-
-
-
 
 
 ?>
@@ -117,25 +148,28 @@ $result = $conn->query($myquery);
         <!-- Contact Form - Enter your email address on line 19 of the mail/contact_me.php file to make this form work. -->
         <!-- WARNING: Some web hosts do not allow emails to be sent through forms to common mail hosts like Gmail or Yahoo. It's recommended that you use a private domain email address! -->
         <!-- To use the contact form, your site must be on a live web host with PHP! The form will not work locally! -->
-        <form name="sentMessage" id="contactForm" novalidate>
+        <form method="post" name="sentMessage" action="login.php" novalidate>
           <div class="control-group">
             <div class="form-group floating-label-form-group controls">
               <label>User Name</label>
-              <input type="text" class="form-control" placeholder="User Name" id="username" required data-validation-required-message="Please enter your User Name.">
+              <input type="text" class="form-control" placeholder="User Name" name="Username" required data-validation-required-message="Please enter your User Name.">
               <p class="help-block text-danger"></p>
             </div>
           </div>
           <div class="control-group">
             <div class="form-group col-xs-12 floating-label-form-group controls">
               <label>Password</label>
-              <input type="password" class="form-control" placeholder="Password" id="password" required data-validation-required-message="Please enter your Password.">
+              <input type="password" class="form-control" placeholder="Password" name="Password" required data-validation-required-message="Please enter your Password.">
               <p class="help-block text-danger"></p>
             </div>
           </div>
           <br>
           <div id="success"></div>
-          <button type="submit" class="btn btn-primary" id="loginButton">submit</button>
+          <button type="submit"  class="btn btn-primary" name="loginButton" value="Login" >login</button>
+            <button type="submit" formaction="createAccount.php" value="Create Account"> create account </button>
+
         </form>
+
       </div>
     </div>
   </div>
@@ -165,9 +199,7 @@ $result = $conn->query($myquery);
   <script src="js/clean-blog.min.js"></script>
 
 
-<?php
 
-?>
 </body>
 
 </html>

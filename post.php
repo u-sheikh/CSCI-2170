@@ -1,5 +1,9 @@
+<?php
+session_start();
 
+$currentUser= $_SESSION['User_Name'];
 
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -31,7 +35,7 @@
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
     <div class="container">
-        <a class="navbar-brand" href="about.php">Lorem Nullam</a>
+        <a class="navbar-brand" href="about.php"><?php echo $_SESSION['User_Name']?></a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             Menu
             <i class="fas fa-bars"></i>
@@ -48,7 +52,7 @@
                     <a class="nav-link" href="addPost.php">add Post</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="login.php">Login</a>
+                    <a class="nav-link" href="logout.php" >Logout</a>
                 </li>
             </ul>
         </div>
@@ -64,7 +68,7 @@
                 <div class="post-heading">
                     <h1><?php echo $_GET['comment']?></h1>
                     <span class="meta">Posted by
-              <a href="about.php">Lorem Nullam on <?php echo($_GET['post_date'])?></a>
+              <a href="about.php"> <?php  echo $_SESSION['User_Name']; echo($_GET['post_date'])?></a>
 
             </span>
                 </div>
@@ -81,14 +85,14 @@ $postid = $_GET['post_id'];
 $name = $_POST['COMMENT'];
 
 $date = date("Y-m-d  H:i:s", time());
-
+$userId= $_SESSION['user_ID'];
 if(isset($_POST['Submits'])) {
     if(empty($_POST['COMMENT'])=='submit'){
 
     }
     else {
         date_default_timezone_set('America/Halifax');
-        $sql= "INSERT INTO comments (commentid, userid, postid, COMMENT, date) VALUES (NULL, '1', '$postid', '$name', '$date')";
+        $sql= "INSERT INTO comments ( userid, postid, COMMENT, date) VALUES ( '$userId', '$postid', '$name', '$date')";
         // echo "<br>";
         if ($conn->query($sql) === TRUE) {
             // echo "New record created successfully";

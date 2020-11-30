@@ -2,9 +2,9 @@
 session_start();
 if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"]!== true){
     header("location:login.php");
-   exit();
-
+    exit();
 }
+
 
 ?>
 
@@ -38,7 +38,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"]!== true){
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
     <div class="container">
-      <a class="navbar-brand" href="about.php">Lorem Nullam</a>
+      <a class="navbar-brand" href="about.php"><?php  echo $_SESSION['User_Name'] ?></a>
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         Menu
         <i class="fas fa-bars"></i>
@@ -55,7 +55,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"]!== true){
             <a class="nav-link" href="addPost.php">add Post</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="login.php">Login</a>
+            <a class="nav-link" href="logout.php">logout</a>
           </li>
         </ul>
       </div>
@@ -85,7 +85,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"]!== true){
         <?php
 //
         include_once 'function.php';
-        $myquery= "SELECT * FROM posts ORDER by posts.date DESC";
+        $myquery= "SELECT * FROM posts,users where posts.userid = users.userid ORDER by posts.date DESC";
                 //echo row [key] --> columns --> line file 1 post table
 
         $result = $conn->query($myquery);
@@ -107,7 +107,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"]!== true){
               // the href takes in the data from the csv file like image information and comments file name
               // that are then being passed onto the post.php page
 
-
+              date_default_timezone_set('America/Halifax');
             ?>
             <a href="post.php?title=<?php echo($row["postImage"])?>&comment=<?php echo($row["post"])?> &post_id=<?php echo($row["postid"])?> &post_date=<?php echo($row["date"])?>" >
               <img src="img/<?php  echo($row["postImage"]); ?>" style = " width: 720px; height: 380px "> </a>
@@ -127,7 +127,10 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"]!== true){
               <a href="about.php" > <?php echo ($row["post"]);?> </a>
               <br>
               <?php
-              echo ("posted By: Lorem Nullam ");
+              echo ("posted By: ");
+              ?>
+              <a href="about.php" > <?php echo ($row["name"]);?> </a>
+              <?php
               echo(" on ");
               // following line will set the time zone to halifax.
               date_default_timezone_set('America/Halifax');

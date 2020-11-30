@@ -1,4 +1,11 @@
+<?php
+session_start();
+if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"]!== true){
+    header("location:login.php");
+    exit();
+}
 
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -30,7 +37,7 @@
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
     <div class="container">
-      <a class="navbar-brand" href="about.php">Lorem Nullam</a>
+      <a class="navbar-brand" href="about.php"><?php echo $_SESSION['User_Name']?></a>
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         Menu
         <i class="fas fa-bars"></i>
@@ -47,7 +54,7 @@
             <a class="nav-link" href="addPost.php">add Post</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="login.php">Login</a>
+            <a class="nav-link" href="logout.php" >Logout</a>
           </li>
         </ul>
       </div>
@@ -120,7 +127,8 @@
                   }
                   else {
                       date_default_timezone_set('America/Halifax');
-                      $sql= "INSERT INTO posts (postid, userid, postImage, post, date) VALUES (NULL, '1', '$name2', '$name', CURRENT_TIMESTAMP);";
+                      $user_id = $_SESSION['user_ID'];
+                      $sql= "INSERT INTO posts (postid, userid, postImage, post, date) VALUES (NULL, '$user_id', '$name2', '$name', CURRENT_TIMESTAMP);";
                       // echo "<br>";
                       if ($conn->query($sql) === TRUE) {
                           // echo "New record created successfully";

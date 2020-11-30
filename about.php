@@ -1,3 +1,11 @@
+<?php
+session_start();
+if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"]!== true){
+    header("location:login.php");
+    exit();
+}
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -26,10 +34,17 @@
 
 <body>
 <?php
+
+$userid= $_SESSION['user_ID'];
 include_once "function.php";
-$myquery= "SELECT * FROM users";
+$myquery= "SELECT * FROM users where userid = '$userid'";
+//echo $myquery;
 $result = $conn->query($myquery);
+
 if ($result = $conn->query($myquery)) {
+//    echo "------------Here---------\n";
+//    $row = $result->fetch_assoc();
+//    echo "$row";
     while ($row = $result->fetch_assoc()) {
 //        echo "%s (%s, %s, %s)<br>", $row["userid"];
 
@@ -38,7 +53,7 @@ if ($result = $conn->query($myquery)) {
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
     <div class="container">
-      <a class="navbar-brand" href="about.php"><?php echo $row["name"]; ?></a>
+      <a class="navbar-brand" href="about.php"><?php echo $_SESSION['User_Name']; ?></a>
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         Menu
         <i class="fas fa-bars"></i>
@@ -49,13 +64,13 @@ if ($result = $conn->query($myquery)) {
             <a class="nav-link" href="index.php"> Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="about.php"><?php echo $row["name"];?></a>
+            <a class="nav-link" href="about.php"><?php echo  $_SESSION['User_Name'];?></a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="addPost.php">Add Post</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="login.php">Login</a>
+            <a class="nav-link" href="logout.php" >Logout</a>
           </li>
         </ul>
       </div>
@@ -70,7 +85,7 @@ if ($result = $conn->query($myquery)) {
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
           <div class="page-heading">
-            <h1>About Me</h1>
+            <h1><?php  echo $_SESSION['User_Name']?></h1>
             <span class="subheading">This is what I do.</span>
           </div>
         </div>
